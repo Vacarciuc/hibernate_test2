@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>findBy</title>
+  </head>
+  <body>
+    <p style="width:300px;margin:auto;">
+        <label for="select">Alege o optiune </label>
+
+      <form action="/find-form" style="width:400px;margin:auto;">
+        <select name="set" id="select" onchange="myFunction()">
+          <option value="">--Please choose an option--</option>
+          <option value="1">Prenume</option>
+          <option value="2">Varsta</option>
+          <option value="3">Adresa</option>
+          <option value="4">Salariu</option>
+        </select>
+<p></p>
+      <div class="mb-3" style="width:500px; margin:auto;">
+        <label for="exampleInputCategory" class="form-label">Categoria</label>
+        <input name ="categoriPersoana" type="text" class="form-control" id="exampleInputCategory" aria-describedby="textHelp">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </p>
+    <p th:text="${message}"></p>
+  <p></p>
+    <table class="Person">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>prenumele</th>
+        <th>varsta</th>
+        <th>adresa</th>
+        <th>salariu</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each="p:${personListCategorie}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.prenumele}"></td>
+        <td th:text="${p.varsta}"></td>
+        <td th:text="${p.adresa}"></td>
+        <td th:text="${p.salariu}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
